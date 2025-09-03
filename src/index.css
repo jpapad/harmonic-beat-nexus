@@ -2,73 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
-/* DJ Suite Design System - Professional Music Production Theme */
+/* DJ Suite v2 Design System - Modern Professional Theme */
 
 @layer base {
   :root {
-    /* DJ Suite Brand Colors */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 95%;
+    /* Base Colors - Dark First */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
     
-    /* Studio Dark Theme */
-    --surface: 222 44% 8%;
-    --surface-elevated: 222 40% 12%;
-    --surface-glass: 222 40% 12% / 0.8;
+    /* Surface System */
+    --surface: 220 13% 9%;
+    --surface-elevated: 217 19% 12%;
+    --surface-glass: 217 19% 12% / 0.8;
+    --surface-hover: 217 19% 15%;
 
     /* Card System */
-    --card: 222 44% 8%;
-    --card-foreground: 210 40% 95%;
+    --card: 220 13% 9%;
+    --card-foreground: 210 40% 98%;
+    --card-header: 217 19% 12%;
 
-    --popover: 222 40% 12%;
-    --popover-foreground: 210 40% 95%;
+    /* Popover System */
+    --popover: 217 19% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    /* DJ Brand Colors */
-    --primary: 280 100% 70%;  /* Electric Purple */
-    --primary-foreground: 222 47% 6%;
-    --primary-glow: 280 100% 85%;
+    /* Brand Colors */
+    --primary: 189 100% 56%;  /* Cyan Accent */
+    --primary-foreground: 222 84% 4.9%;
+    --primary-hover: 189 95% 50%;
+    --primary-subtle: 189 60% 15%;
 
-    --secondary: 222 40% 12%;
-    --secondary-foreground: 210 40% 95%;
+    /* Secondary System */
+    --secondary: 217 19% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 217 19% 20%;
 
-    --muted: 222 35% 15%;
-    --muted-foreground: 210 20% 65%;
+    /* Muted System */
+    --muted: 217 32% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 195 100% 60%;  /* Cyan Accent */
-    --accent-foreground: 222 47% 6%;
+    /* Accent System (Teal) */
+    --accent: 173 80% 40%;
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 173 75% 35%;
+    --accent-subtle: 173 50% 15%;
 
-    --destructive: 0 72% 58%;
-    --destructive-foreground: 210 40% 95%;
+    /* Status Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 84% 4.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
 
     /* Interactive Elements */
-    --border: 222 35% 18%;
-    --input: 222 35% 15%;
-    --ring: 280 100% 70%;
+    --border: 217 32% 17.5%;
+    --input: 217 32% 17.5%;
+    --ring: 189 100% 56%;
     
-    /* Music Production Colors */
-    --waveform: 280 100% 70%;
-    --beatgrid: 195 100% 60%;
-    --cue: 45 100% 60%;
-    --hot-cue: 15 100% 60%;
+    /* DJ-Specific Colors */
+    --waveform: 189 100% 56%;
+    --beatgrid: 173 80% 40%;
+    --cue: 38 92% 50%;
+    --hot-cue: 0 84.2% 60.2%;
     
-    /* Energy/BPM Indicators */
-    --energy-low: 120 60% 50%;
-    --energy-mid: 45 100% 60%;
-    --energy-high: 15 100% 60%;
+    /* Energy System */
+    --energy-low: 142 76% 36%;
+    --energy-mid: 38 92% 50%;
+    --energy-high: 0 84.2% 60.2%;
     
-    /* Camelot Wheel Colors */
-    --camelot-major: 280 100% 70%;
-    --camelot-minor: 195 100% 60%;
+    /* Camelot System */
+    --camelot-major: 189 100% 56%;
+    --camelot-minor: 173 80% 40%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-waveform: linear-gradient(90deg, hsl(var(--waveform)), hsl(var(--accent)));
-    --gradient-deck: linear-gradient(180deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    /* Shadow System */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Animation System */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    
+    --surface: 210 40% 98%;
+    --surface-elevated: 0 0% 100%;
+    --surface-glass: 0 0% 100% / 0.8;
+    --surface-hover: 210 40% 95%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --card-header: 210 40% 98%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 189 100% 42%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 189 95% 38%;
+    --primary-subtle: 189 60% 95%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 4.9%;
+    --secondary-hover: 210 40% 90%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 173 60% 50%;
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 173 55% 45%;
+    --accent-subtle: 173 50% 95%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 189 100% 42%;
   }
 }
 
@@ -78,10 +136,96 @@
   }
 
   body {
-    @apply bg-background text-foreground font-mono;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
   }
   
-  /* Custom animations for DJ interface */
+  /* Typography Scale */
+  .text-display {
+    @apply text-5xl font-bold tracking-tight;
+  }
+  
+  .text-heading-1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  
+  .text-heading-2 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+  
+  .text-heading-3 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+  
+  .text-body-lg {
+    @apply text-lg leading-7;
+  }
+  
+  .text-body {
+    @apply text-base leading-6;
+  }
+  
+  .text-body-sm {
+    @apply text-sm leading-5;
+  }
+  
+  .text-caption {
+    @apply text-xs leading-4 text-muted-foreground;
+  }
+
+  /* Component Base Classes */
+  .card-elevated {
+    @apply bg-surface-elevated shadow-md border border-border/50;
+  }
+
+  .surface-glass {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--surface-glass));
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Animation Classes */
+  .animate-in {
+    animation: animate-in 0.2s ease-out;
+  }
+  
+  .animate-out {
+    animation: animate-out 0.15s ease-in;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes animate-out {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.98);
+    }
+  }
+
+  /* Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* DJ Interface Animations */
   .waveform-pulse {
     animation: waveform-pulse 1.5s ease-in-out infinite;
   }
@@ -98,12 +242,5 @@
   @keyframes beat-flash {
     from { transform: scale(1.2); opacity: 1; }
     to { transform: scale(1); opacity: 0.8; }
-  }
-  
-  /* Glass morphism for overlays */
-  .glass {
-    backdrop-filter: blur(12px);
-    background: hsl(var(--surface-glass));
-    border: 1px solid hsl(var(--border));
   }
 }
