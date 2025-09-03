@@ -31,6 +31,12 @@ const WaveformDisplay: React.FC<WaveformDisplayProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Get computed CSS custom property values
+    const getComputedCSSValue = (property: string) => {
+      const root = document.documentElement;
+      return getComputedStyle(root).getPropertyValue(property).trim();
+    };
+
     // Mock waveform data
     const width = canvas.width;
     const height = canvas.height;
@@ -38,8 +44,15 @@ const WaveformDisplay: React.FC<WaveformDisplayProps> = ({
 
     ctx.clearRect(0, 0, width, height);
 
+    // Get resolved colors
+    const borderColor = `hsl(${getComputedCSSValue('--border')})`;
+    const waveformColor = `hsl(${getComputedCSSValue('--waveform')})`;
+    const accentColor = `hsl(${getComputedCSSValue('--accent')})`;
+    const beatgridColor = `hsl(${getComputedCSSValue('--beatgrid')})`;
+    const cueColor = `hsl(${getComputedCSSValue('--cue')})`;
+
     // Draw background grid
-    ctx.strokeStyle = 'hsl(var(--border))';
+    ctx.strokeStyle = borderColor;
     ctx.lineWidth = 1;
     for (let i = 0; i < width; i += 50) {
       ctx.beginPath();
@@ -50,8 +63,8 @@ const WaveformDisplay: React.FC<WaveformDisplayProps> = ({
 
     // Generate mock waveform
     const gradient = ctx.createLinearGradient(0, 0, width, 0);
-    gradient.addColorStop(0, 'hsl(var(--waveform))');
-    gradient.addColorStop(1, 'hsl(var(--accent))');
+    gradient.addColorStop(0, waveformColor);
+    gradient.addColorStop(1, accentColor);
     
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -66,7 +79,7 @@ const WaveformDisplay: React.FC<WaveformDisplayProps> = ({
     ctx.fill();
 
     // Draw beat grid
-    ctx.strokeStyle = 'hsl(var(--beatgrid))';
+    ctx.strokeStyle = beatgridColor;
     ctx.lineWidth = 2;
     for (let i = 0; i < width; i += 80) {
       ctx.beginPath();
@@ -77,7 +90,7 @@ const WaveformDisplay: React.FC<WaveformDisplayProps> = ({
 
     // Draw playhead
     const playheadX = width * 0.3; // Mock position
-    ctx.strokeStyle = 'hsl(var(--cue))';
+    ctx.strokeStyle = cueColor;
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(playheadX, 0);
